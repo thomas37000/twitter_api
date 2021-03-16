@@ -71,6 +71,9 @@ const RightNav = ({ open }) => {
       <li>
         <Link to="/facebook-no-img">Facebook No Img</Link>
       </li>
+      <li>
+        <Link to="/instagram">Instagram</Link>
+      </li>
       {/* <li>
         <Link to="/todolist">Todolist</Link>
       </li> */}

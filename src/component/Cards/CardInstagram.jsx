@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-export default function Card({ post }) {
+export default function CardInstagram({ post }) {
   const [isImg, setIsImg] = useState(true);
   const bg = `url(${post.media_url})`;
   const bgBefore = {
@@ -101,7 +101,7 @@ export default function Card({ post }) {
   );
 }
 
-Card.propTypes = {
+CardInstagram.propTypes = {
   post: PropTypes.shape({
     avatar_url: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,

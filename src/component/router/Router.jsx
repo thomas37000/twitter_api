@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SliderFacebook from '../wiews/SliderFacebook';
 import SliderFbBg from '../wiews/SliderFbBg';
+import SliderInstagram from '../wiews/SliderInstagram';
 import SliderTwitter from '../wiews/SliderTwitter';
 import SliderTwitterBg from '../wiews/SliderTwitterBg';
 import Navbar from '../Burger_Menu/NavBar';
@@ -16,6 +17,7 @@ export default function Routter() {
           <Route exact path="/" />
           <Route path="/twitter" component={SliderTwitter} />
           <Route path="/twitter-no-img" component={SliderTwitterBg} />
+          <Route path="/instagram" component={SliderInstagram} />
           <Route path="/facebook" component={SliderFacebook} />
           <Route path="/facebook-no-img" component={SliderFbBg} />
         </Switch>

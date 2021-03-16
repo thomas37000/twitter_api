@@ -8,9 +8,9 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import CardTwitter from '../Cards/CardTwitter';
+import CardInstagram from '../Cards/CardInstagram';
 
-const SliderTwitter = () => {
+const SliderInstagram = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [items, setItems] = useState([]);
@@ -22,7 +22,7 @@ const SliderTwitter = () => {
     s: 'thomas4',
     t: 'ddf1f0d7ee779ed42772231fa903a43b',
     object: 'post',
-    network: 'twitter',
+    network: 'insatgram',
     per_page: 30,
   };
 
@@ -33,7 +33,7 @@ const SliderTwitter = () => {
       .then((data) => {
         setItems(data);
         setUsers(data.user);
-        console.log('twitter posts', data);
+        console.log('instagram posts', data);
       })
       .catch((error) => {
         let message;
@@ -73,7 +73,7 @@ const SliderTwitter = () => {
         key={post.pub_id}
         post={post}
       >
-        <CardTwitter key={post.pub_id} post={post} session={post.session_id} />
+        <CardInstagram key={post.pub_id} post={post} session={post.session_id} />
         <CarouselCaption
           captionText={post.caption}
           captionHeader={post.caption}
@@ -104,4 +104,4 @@ const SliderTwitter = () => {
   );
 };
 
-export default SliderTwitter;
+export default SliderInstagram;
