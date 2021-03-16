@@ -1,48 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Card from './component/Card';
+import React from 'react';
+import Routter from './component/router/Router';
+import './App.css';
 
-const App = () => {
-  const [posts, setPosts] = useState([]);
-  
-  const API_URL = "https://slideyour.net/api.php";
-  const params = {
-    s: 'thomas4',
-    t: 'ddf1f0d7ee779ed42772231fa903a43b',
-    object: 'post',
-    type: 'get',
-    network: 'twitter',
-    per_page: 30,
-  };
-
-  useEffect(() => {
-    axios
-      .get(`${API_URL}`, { params })
-      .then((res) => res.data)
-      .then((data) => {
-        setPosts(data);
-        console.log("twitter posts", data);
-      })
-      .catch((error) => {
-        let message;
-        if (error) {
-          message = "vous n' avez pas accès à cette page";
-        } else {
-          message = error.response.data.errorMessage;
-          console.log(message);
-          console.log(error);
-        }
-      });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.t]);
-
+function App() {
   return (
-    <div className="galerie">
-      {posts.map((post) => (
-        <Card key={post.pub_id} post={post} session={post.session_id} />
-      ))}
+    <div className="App">
+      <Routter />
     </div>
   );
-};
+}
 
 export default App;

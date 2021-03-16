@@ -1,59 +1,141 @@
-.galerie {
+:root {
+  --bgNoImg: #1da1f2;
+  --bgNoImgFb: #4267b2;
+  --bgNoImgNous: #ffdd00;
+}
+
+.card {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bgNoImg)!important;
+}
+
+.cardFb {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bgNoImgFb)!important;
+}
+
+.cardNous {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bgNoImgNous);
+}
+
+.cardWithImg {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cardWithImg::before {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background-image: var(--before);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.cardBody {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-}
-.card {
-  width: 300px;
-  height: 400px;
-  margin: 10px;
-  padding: 10px;
-  background-image: linear-gradient(to right top, #004d7a, #008793);
+  align-items: center;
+  color: #f1f1f1;
+  margin: 5rem 1rem;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: left;
 }
 
-.headerCard {
+.cardBodyNoImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+  margin: 5rem 1rem;
+  font-size: 35px;
+  text-align: center;
+}
+
+.cardBodyWithImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+  margin: 5rem 1rem;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.userCard {
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
 }
 
-.cardImg {
+.name {
+  color: #fff;
+  font-weight: 700;
+  margin: 1rem 0 0 1rem;
+}
+
+.footerCard {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hashtag {
+  color: #fff;
+  margin: 1rem 1rem 0 0;
+}
+
+.logoUser {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-top: 1rem;
 }
 
+.cardImg {
+  margin: 0 0 0 5rem;
+}
+
 .getImg {
   display: flex;
-  width: 100px;
-  height: 100px;
-  margin-left: 3rem;
+  width: 450px;
+  height: 400px;
+}
+
+.getImgFb {
+  display: flex;
+  width: 450px;
+  height: 550px;
 }
 
 .hideImg {
   display: none;
 }
 
-.card:hover {
-  background-position: 100% 100%;
-  background: #48ad26;
-}
-.card:hover .hashtag {
-  color: #000;
-}
-
-button {
-  width: 100px;
-  margin-bottom: 1rem;
-}
-
-.socialLink {
-  color: #000;
-  text-decoration: none;
-}
-
-.date {
-  display: flex;
-  justify-content: flex-end;
+@media screen and (max-width: 768px) {
+  .cardImg {
+    margin: 0;
+  }
+  
+  .cardBodyWithImg {
+    display: block;
+    font-size: 25px;
+  }
+  .getImg {
+    display: flex;
+    width: 350px;
+    height: 300px;
+  }
 }
