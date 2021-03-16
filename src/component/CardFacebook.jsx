@@ -5,9 +5,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-export default function Card({ post }) {
+export default function CardFb({ post }) {
   const [isImg, setIsImg] = useState(true);
   const bg = `url(${post.media_url})`;
+  // eslint-disable-next-line no-unused-vars
   const bgBefore = {
     '--before': bg,
   };
@@ -56,14 +57,14 @@ export default function Card({ post }) {
           </div>
         </div>
       ) : (
-        <div className="card">
-          <div className="cardBody">
+        <div className="cardFb">
+          <div className="cardBodyNoImg">
             <div className="content">
               <p>{post.content}</p>
             </div>
             <div className="cardImg">
               {post ? (
-                <div className="getImg">
+                <div className="getImgFb">
                   <img src={post.media_url} alt="" />
                 </div>
               ) : (
@@ -73,12 +74,10 @@ export default function Card({ post }) {
               )}
             </div>
           </div>
-
           <p className="card-text">{post.text}</p>
           {/* <a href={post.pub_url} className="socialLink">
           link
         </a> */}
-
           <div className="userCard">
             <img
               className="logoUser"
@@ -101,7 +100,7 @@ export default function Card({ post }) {
   );
 }
 
-Card.propTypes = {
+CardFb.propTypes = {
   post: PropTypes.shape({
     avatar_url: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
