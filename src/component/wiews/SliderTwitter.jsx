@@ -8,7 +8,7 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import Card from './Card';
+import Card from '../Cards/Card';
 
 const SliderTwitter = () => {
   const [activeIndex, setActiveIndex] = useState(0);

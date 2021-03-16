@@ -8,9 +8,9 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import CardFb from './CardFacebook';
+import CardTwitterBg from '../Cards/CardTwitterBg';
 
-const SliderFacebook = () => {
+const SliderTwitterBg = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [items, setItems] = useState([]);
@@ -19,11 +19,11 @@ const SliderFacebook = () => {
 
   const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    s: 'thomas3',
-    t: '8845c9cd48230070ac72191467ac1690',
+    s: 'thomas4',
+    t: 'ddf1f0d7ee779ed42772231fa903a43b',
     object: 'post',
-    network: 'facebook',
-    per_page: 10,
+    network: 'twitter',
+    per_page: 30,
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const SliderFacebook = () => {
       .then((data) => {
         setItems(data);
         setUsers(data.user);
-        console.log('Facebook posts', data);
+        console.log('twitter posts', data);
       })
       .catch((error) => {
         let message;
@@ -73,7 +73,7 @@ const SliderFacebook = () => {
         key={post.pub_id}
         post={post}
       >
-        <CardFb key={post.pub_id} post={post} session={post.session_id} />
+        <CardTwitterBg key={post.pub_id} post={post} session={post.session_id} />
         <CarouselCaption
           captionText={post.caption}
           captionHeader={post.caption}
@@ -104,4 +104,4 @@ const SliderFacebook = () => {
   );
 };
 
-export default SliderFacebook;
+export default SliderTwitterBg;
