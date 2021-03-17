@@ -6,87 +6,87 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 export default function CardTwitter({ post }) {
-
   const bg = `url(${post.media_url})`;
   const bgBefore = {
     '--before': bg,
   };
 
+  const spanText = post.content;
+  const spanUser = post.user.name;
+  const changeContent = spanText.includes('@');
+  const changeSpanText = `url(${post.user.name})`;
+  const spanTextColor = {
+    '--Text': changeSpanText,
+  };
+
+  function test() {
+    const str = document.getElementById('test').innerHTML;
+    const txt = str.replace('@', 'TEST');
+    document.getElementById('test').innerHTML = txt;
+  }
+
   return (
     <>
       {!!post.media_url ? (
-        <div className="cardWithImg" style={bgBefore}>
-          <div className="cardBodyWithImg">
-            <div className="content">
+        <div className='cardWithImg' style={bgBefore}>
+          <div className='cardBodyWithImg'>
+            <div className='content' style={spanTextColor}>
               <p>{post.content}</p>
             </div>
-            <div className="cardImg">
+            <div className='cardImg'>
               {!!post.media_url ? (
-                <div className="getImg">
-                  <img src={post.media_url} alt="" />
+                <div className='getImg'>
+                  <img src={post.media_url} alt='' />
                 </div>
               ) : (
-                <div className="hideImg">
-                  <img src={post.media_url} alt="" />
+                <div className='hideImg'>
+                  <img src={post.media_url} alt='' />
                 </div>
               )}
             </div>
           </div>
-
-          <p className="card-text">{post.text}</p>
-          <div className="userCard">
+          <div className='userCard'>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.user.name}
             />
-            <h3 className="name">@{post.user.name}</h3>
+            <h3 className='name'>@{post.user.name}</h3>
           </div>
-          <div className="footerCard">
-            <h3 className="hashtag">{post.user.name}</h3>
+          <div className='footerCard'>
+            <h3 className='hashtag'>{post.user.name}</h3>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.search}
             />
           </div>
         </div>
       ) : (
-        <div className="card">
-          <div className="cardBodyNoImg">
-            <div className="content">
+        <div className='card'>
+          <div className='cardBodyNoImg'>
+            <div className='content' style={spanTextColor} id='test'>
               <p>{post.content}</p>
             </div>
-            <div className="cardImg">
-              {!!post.media_url ? (
-                <div className="getImg">
-                  <img src={post.media_url} alt="" />
-                </div>
-              ) : (
-                <div className="hideImg">
-                  <img src={post.media_url} alt="" />
-                </div>
-              )}
+            <div className='hideImg'>
+              <img src={post.media_url} alt='' />
             </div>
-          </div>
-
-          <p className="card-text">{post.text}</p>
-
-          <div className="userCard">
-            <img
-              className="logoUser"
-              src={post.user.avatar_url}
-              alt={post.user.name}
-            />
-            <h3 className="name">@{post.user.name}</h3>
-          </div>
-          <div className="footerCard">
-            <h3 className="hashtag">{post.user.name}</h3>
-            <img
-              className="logoUser"
-              src={post.user.avatar_url}
-              alt={post.search}
-            />
+            <div className='userCard'>
+              <img
+                className='logoUser'
+                src={post.user.avatar_url}
+                alt={post.user.name}
+              />
+              <h3 className='name'>@{post.user.name}</h3>
+            </div>
+            <div className='footerCard'>
+              <h3 className='hashtag'>{post.user.name}</h3>
+              <img
+                className='logoUser'
+                src={post.user.avatar_url}
+                alt={post.search}
+              />
+            </div>
           </div>
         </div>
       )}

@@ -24,8 +24,6 @@ export default function CardFb({ post }) {
               </div>
             </div>
           </div>
-
-          <p className='card-text'>{post.text}</p>
           <div className='userCard'>
             <img
               className='logoUser'
@@ -50,7 +48,7 @@ export default function CardFb({ post }) {
               <p>{post.content}</p>
             </div>
             <div className='cardImg'>
-              <div className='hideImg'>
+            <div className='hideImg'>
                 <img src={post.media_url} alt='' />
               </div>
             </div>

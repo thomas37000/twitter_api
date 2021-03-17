@@ -13,7 +13,7 @@
 .cardFb {
   width: 100vw;
   height: 100vh;
-  background: var(--bgNoImgFb);
+  background: var(--bgNoImgFb) ;
 }
 
 .cardNous {
@@ -48,7 +48,8 @@
 }
 
 .cardBodyNoImg {
-  display: flex;
+  margin: 0 5rem;
+  display: grid;
   justify-content: center;
   align-items: center;
   color: #f1f1f1;
@@ -68,6 +69,8 @@
 }
 
 .content {
+  margin: 10rem 0 3rem 0;
+  color: var(--Text)!important;
 }
 
 .userCard {
@@ -85,6 +88,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-top: 5rem;
 }
 
 .hashtag {

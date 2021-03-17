@@ -21,9 +21,10 @@ const SliderInstagram = () => {
   const params = {
     s: 'thomas4',
     t: 'ddf1f0d7ee779ed42772231fa903a43b',
-    object: 'post',
+    object: 'post, user',
     network: 'instagram',
-    username: 'elonmusk',
+    type: 'ref',
+    username: '',
     per_page: 30,
   };
 
