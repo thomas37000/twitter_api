@@ -19,10 +19,13 @@ const SliderTwitter = () => {
 
   const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    s: 'thomas4',
-    t: 'ddf1f0d7ee779ed42772231fa903a43b',
+    // s: 'thomas4',
+    // t: 'ddf1f0d7ee779ed42772231fa903a43b',
+    s: 'thomas2',
+    t: '414d4d57e4577ea404ff0ebdfe25c680',
     object: 'post',
     network: 'twitter',
+    username: '',
     per_page: 30,
   };
 
@@ -46,7 +49,7 @@ const SliderTwitter = () => {
         }
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.t]);
+  }, [params.username]);
 
   const next = () => {
     if (animating) return;

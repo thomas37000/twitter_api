@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 export default function CardInstagram({ post }) {
-  const [isImg, setIsImg] = useState(true);
   const bg = `url(${post.media_url})`;
   const bgBefore = {
     '--before': bg,
@@ -14,83 +13,69 @@ export default function CardInstagram({ post }) {
 
   return (
     <>
-      {isImg ? (
-        <div className="cardWithImg" style={bgBefore}>
-          <div className="cardBodyWithImg">
-            <div className="content">
+      {!!post.media_url ? (
+        <div className='cardWithImg' style={bgBefore}>
+          <div className='cardBodyWithImg'>
+            <div className='content'>
               <p>{post.content}</p>
             </div>
-            <div className="cardImg">
-              {post ? (
-                <div className="getImg">
-                  <img src={post.media_url} alt="" />
-                </div>
-              ) : (
-                <div className="hideImg">
-                  <img src={post.media_url} alt="" />
-                </div>
-              )}
+            <div className='cardImg'>
+              <div className='getImg'>
+                <img src={post.media_url} alt='' />
+              </div>
             </div>
           </div>
 
-          <p className="card-text">{post.text}</p>
-          {/* <a href={post.pub_url} className="socialLink">
-          link
-        </a> */}
-
-          <div className="userCard">
+          <p className='card-text'>{post.text}</p>
+          <div className='userCard'>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.user.name}
             />
-            <h3 className="name">@{post.user.name}</h3>
+            <h3 className='name'>@{post.user.name}</h3>
           </div>
-          <div className="footerCard">
-            <h3 className="hashtag">{post.user.name}</h3>
+          <div className='footerCard'>
+            <h3 className='hashtag'>{post.user.name}</h3>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.search}
             />
           </div>
         </div>
       ) : (
-        <div className="card">
-          <div className="cardBody">
-            <div className="content">
+        <div className='card'>
+          <div className='cardBody'>
+            <div className='content'>
               <p>{post.content}</p>
             </div>
-            <div className="cardImg">
-              {post ? (
-                <div className="getImg">
-                  <img src={post.media_url} alt="" />
+            <div className='cardImg'>
+              {!!post.media_url ? (
+                <div className='getImg'>
+                  <img src={post.media_url} alt='' />
                 </div>
               ) : (
-                <div className="hideImg">
-                  <img src={post.media_url} alt="" />
+                <div className='hideImg'>
+                  <img src={post.media_url} alt='' />
                 </div>
               )}
             </div>
           </div>
 
-          <p className="card-text">{post.text}</p>
-          {/* <a href={post.pub_url} className="socialLink">
-          link
-        </a> */}
-
-          <div className="userCard">
+          <p className='card-text'>{post.text}</p>
+          <div className='userCard'>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.user.name}
             />
-            <h3 className="name">@{post.user.name}</h3>
+            <h3 className='name'>@{post.user.name}</h3>
           </div>
-          <div className="footerCard">
-            <h3 className="hashtag">{post.user.name}</h3>
+          <div className='footerCard'>
+            <h3 className='hashtag'>{post.user.name}</h3>
             <img
-              className="logoUser"
+              className='logoUser'
               src={post.user.avatar_url}
               alt={post.search}
             />

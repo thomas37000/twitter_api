@@ -7,7 +7,7 @@
 .card {
   width: 100vw;
   height: 100vh;
-  background: var(--bgNoImg)!important;
+  background: var(--bgNoImg) !important;
 }
 
 .cardFb {
@@ -52,7 +52,6 @@
   justify-content: center;
   align-items: center;
   color: #f1f1f1;
-  margin: 5rem 1rem;
   font-size: 35px;
   text-align: center;
 }
@@ -66,6 +65,9 @@
   font-size: 35px;
   font-weight: bold;
   text-align: left;
+}
+
+.content {
 }
 
 .userCard {
@@ -121,7 +123,7 @@
   .cardImg {
     margin: 0;
   }
-  
+
   .cardBodyWithImg {
     display: block;
     font-size: 25px;

@@ -9,7 +9,6 @@ import {
   CarouselCaption,
 } from 'reactstrap';
 import CardFb from '../Cards/CardFacebook';
-import CardFbBg from '../Cards/CardFbBg';
 
 const SliderFacebook = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,17 +16,17 @@ const SliderFacebook = () => {
   const [items, setItems] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [isImg, setIsImg] = useState(true);
 
   const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    s: 'thomas3',
-    t: '8845c9cd48230070ac72191467ac1690',
+    // s: 'thomas5',
+    // t: 'e1e61b23b1acf9a7fda0849136b3b301',
+    s: 'thomas2',
+    t: '414d4d57e4577ea404ff0ebdfe25c680',
     object: 'post',
     network: 'facebook',
+    username: '',
     per_page: 10,
-    status: 1,
   };
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const SliderFacebook = () => {
         }
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.t]);
+  }, [params.username]);
 
   const next = () => {
     if (animating) return;
@@ -77,11 +76,7 @@ const SliderFacebook = () => {
         key={post.pub_id}
         post={post}
       >
-        {isImg ? (
-          <CardFb key={post.pub_id} post={post} session={post.session_id} />
-        ) : (
-          <CardFbBg key={post.pub_id} post={post} session={post.session_id} />
-        )}
+        <CardFb key={post.pub_id} post={post} session={post.session_id} />
         <CarouselCaption
           captionText={post.caption}
           captionHeader={post.caption}

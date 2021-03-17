@@ -21,7 +21,7 @@ export default function CardTwitter({ post }) {
               <p>{post.content}</p>
             </div>
             <div className="cardImg">
-              {post ? (
+              {!!post.media_url ? (
                 <div className="getImg">
                   <img src={post.media_url} alt="" />
                 </div>
@@ -53,12 +53,12 @@ export default function CardTwitter({ post }) {
         </div>
       ) : (
         <div className="card">
-          <div className="cardBody">
+          <div className="cardBodyNoImg">
             <div className="content">
               <p>{post.content}</p>
             </div>
             <div className="cardImg">
-              {post ? (
+              {!!post.media_url ? (
                 <div className="getImg">
                   <img src={post.media_url} alt="" />
                 </div>

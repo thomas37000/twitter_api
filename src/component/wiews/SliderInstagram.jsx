@@ -22,7 +22,8 @@ const SliderInstagram = () => {
     s: 'thomas2',
     t: '414d4d57e4577ea404ff0ebdfe25c680',
     object: 'post',
-    network: 'insatgram',
+    network: 'instagram',
+    username: '',
     per_page: 30,
   };
 
@@ -46,7 +47,7 @@ const SliderInstagram = () => {
         }
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.t]);
+  }, [params.username]);
 
   const next = () => {
     if (animating) return;

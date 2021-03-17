@@ -19,15 +19,9 @@ export default function CardFb({ post }) {
               <p>{post.content}</p>
             </div>
             <div className='cardImg'>
-              {post ? (
-                <div className='getImg'>
-                  <img src={post.media_url} alt='' />
-                </div>
-              ) : (
-                <div className='hideImg'>
-                  <img src={post.media_url} alt='' />
-                </div>
-              )}
+              <div className='getImg'>
+                <img src={post.media_url} alt='' />
+              </div>
             </div>
           </div>
 
@@ -56,15 +50,9 @@ export default function CardFb({ post }) {
               <p>{post.content}</p>
             </div>
             <div className='cardImg'>
-              {post ? (
-                <div className='getImgFb'>
-                  <img src={post.media_url} alt='' />
-                </div>
-              ) : (
-                <div className='hideImg'>
-                  <img src={post.media_url} alt='' />
-                </div>
-              )}
+              <div className='hideImg'>
+                <img src={post.media_url} alt='' />
+              </div>
             </div>
           </div>
           <p className='card-text'>{post.text}</p>
