@@ -11,6 +11,11 @@ export default function CardTwitter({ post }) {
     '--before': bg,
   };
 
+  const nous = `url(${post.user.name})`;
+  const avecNous = {
+    '--avecNousBg': nous,
+  };
+
   const spanText = post.content;
   const spanUser = post.user.name;
   const changeContent = spanText.includes('@');
@@ -63,32 +68,63 @@ export default function CardTwitter({ post }) {
           </div>
         </div>
       ) : (
-        <div className='card'>
-          <div className='cardBodyNoImg'>
-            <div className='content' style={spanTextColor} id='test'>
-              <p>{post.content}</p>
+        <>
+          {!!post.user.name === 'avecnous' ? (
+            <div className='card' style={avecNous}>
+              <div className='cardBodyNoImg'>
+                <div className='content' style={spanTextColor} id='test'>
+                  <p>{post.content}</p>
+                </div>
+                <div className='hideImg'>
+                  <img src={post.media_url} alt='' />
+                </div>
+                <div className='userCard'>
+                  <img
+                    className='logoUser'
+                    src={post.user.avatar_url}
+                    alt={post.user.name}
+                  />
+                  <h3 className='name'>@{post.user.name}</h3>
+                </div>
+                <div className='footerCard'>
+                  <h3 className='hashtag'>{post.user.name}</h3>
+                  <img
+                    className='logoUser'
+                    src={post.user.avatar_url}
+                    alt={post.search}
+                  />
+                </div>
+              </div>
             </div>
-            <div className='hideImg'>
-              <img src={post.media_url} alt='' />
+          ) : (
+            <div className='card'>
+              <div className='cardBodyNoImg'>
+                <div className='content' style={spanTextColor} id='test'>
+                  <p>{post.content}</p>
+                </div>
+                <div className='hideImg'>
+                  <img src={post.media_url} alt='' />
+                </div>
+                <div className='userCard'>
+                  <img
+                    className='logoUser'
+                    src={post.user.avatar_url}
+                    alt={post.user.name}
+                  />
+                  <h3 className='name'>@{post.user.name}</h3>
+                </div>
+                <div className='footerCard'>
+                  <h3 className='hashtag'>{post.user.name}</h3>
+                  <img
+                    className='logoUser'
+                    src={post.user.avatar_url}
+                    alt={post.search}
+                  />
+                </div>
+              </div>
             </div>
-            <div className='userCard'>
-              <img
-                className='logoUser'
-                src={post.user.avatar_url}
-                alt={post.user.name}
-              />
-              <h3 className='name'>@{post.user.name}</h3>
-            </div>
-            <div className='footerCard'>
-              <h3 className='hashtag'>{post.user.name}</h3>
-              <img
-                className='logoUser'
-                src={post.user.avatar_url}
-                alt={post.search}
-              />
-            </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </>
   );

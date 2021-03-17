@@ -1,14 +1,18 @@
 :root {
-  --bgNoImg: #1da1f2;
+  --bgNoImgTwitter: #1da1f2;
   --bgNoImgFb: #4267b2;
-  --bgNoImgNous: #ffdd00;
+  --avecNousBg: #ffdd00;
 }
 
 .card {
   width: 100vw;
   height: 100vh;
-  background: var(--bgNoImg) !important;
+  background: var(--bgNoImgTwitter) !important;
 }
+
+/* .card { 
+  background: var(--avecNousBg) !important;
+} */
 
 .cardFb {
   width: 100vw;
