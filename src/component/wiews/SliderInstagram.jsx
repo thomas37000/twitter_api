@@ -19,8 +19,8 @@ const SliderInstagram = () => {
 
   const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    s: 'thomas4',
-    t: 'ddf1f0d7ee779ed42772231fa903a43b',
+    s: 'thomas2',
+    t: '414d4d57e4577ea404ff0ebdfe25c680',
     object: 'post',
     network: 'insatgram',
     per_page: 30,

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 export default function CardTwitter({ post }) {
-  const [isImg, setIsImg] = useState(true);
+
   const bg = `url(${post.media_url})`;
   const bgBefore = {
     '--before': bg,
@@ -14,7 +14,7 @@ export default function CardTwitter({ post }) {
 
   return (
     <>
-      {isImg ? (
+      {!!post.media_url ? (
         <div className="cardWithImg" style={bgBefore}>
           <div className="cardBodyWithImg">
             <div className="content">
@@ -34,10 +34,6 @@ export default function CardTwitter({ post }) {
           </div>
 
           <p className="card-text">{post.text}</p>
-          {/* <a href={post.pub_url} className="socialLink">
-          link
-        </a> */}
-
           <div className="userCard">
             <img
               className="logoUser"
@@ -75,9 +71,6 @@ export default function CardTwitter({ post }) {
           </div>
 
           <p className="card-text">{post.text}</p>
-          {/* <a href={post.pub_url} className="socialLink">
-          link
-        </a> */}
 
           <div className="userCard">
             <img

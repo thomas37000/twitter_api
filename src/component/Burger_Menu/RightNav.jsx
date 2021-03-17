@@ -56,27 +56,15 @@ const Slideburger = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Slideburger open={open}>
-      {/* <li>
-        <Link to="/">Accueil</Link>
-      </li> */}
       <li>
         <Link to="/twitter">Twitter</Link>
-      </li>
-      <li>
-        <Link to="/twitter-no-img">Twitter No Img</Link>
       </li>
       <li>
         <Link to="/facebook">Facebook</Link>
       </li>
       <li>
-        <Link to="/facebook-no-img">Facebook No Img</Link>
-      </li>
-      <li>
         <Link to="/instagram">Instagram</Link>
       </li>
-      {/* <li>
-        <Link to="/todolist">Todolist</Link>
-      </li> */}
     </Slideburger>
   );
 };
