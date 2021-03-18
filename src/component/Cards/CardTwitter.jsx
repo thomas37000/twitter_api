@@ -16,26 +16,32 @@ export default function CardTwitter({ post }) {
     '--avecNousBg': nous,
   };
 
-  const spanText = post.content;
-  const spanUser = post.user.name;
-  const changeContent = spanText.includes('@');
-  const changeSpanText = `url(${post.user.name})`;
-  const spanTextColor = {
-    '--Text': changeSpanText,
+  const regex = /@\w+/g;
+  const regex2 = `url(${post.content.regex})`;
+  const spanRegex = {
+    '--Regex': regex,
   };
 
-  function test() {
-    const str = document.getElementById('test').innerHTML;
-    const txt = str.replace('@', 'TEST');
-    document.getElementById('test').innerHTML = txt;
-  }
+  // const spanText = post.content;
+  // const spanUser = post.user.name;
+  // const changeContent = spanText.includes('@');
+  // const changeSpanText = `url(${post.user.name})`;
+  // const spanTextColor = {
+  //   '--Text': changeSpanText,
+  // };
+
+  // function test() {
+  //   const str = document.getElementById('test').innerHTML;
+  //   const txt = str.replace('@', 'TEST');
+  //   document.getElementById('test').innerHTML = txt;
+  // }
 
   return (
     <>
       {!!post.media_url ? (
         <div className='cardWithImg' style={bgBefore}>
           <div className='cardBodyWithImg'>
-            <div className='content' style={spanTextColor}>
+            <div className='content'>
               <p>{post.content}</p>
             </div>
             <div className='cardImg'>
@@ -72,8 +78,11 @@ export default function CardTwitter({ post }) {
           {!!post.user.name === 'avecnous' ? (
             <div className='card' style={avecNous}>
               <div className='cardBodyNoImg'>
-                <div className='content' style={spanTextColor} id='test'>
+                <div className='content'>
                   <p>{post.content}</p>
+                  <p>
+                    <span className='regex'>dicta, @totam eos? #lorem</span>
+                  </p>
                 </div>
                 <div className='hideImg'>
                   <img src={post.media_url} alt='' />
@@ -99,8 +108,13 @@ export default function CardTwitter({ post }) {
           ) : (
             <div className='card'>
               <div className='cardBodyNoImg'>
-                <div className='content' style={spanTextColor} id='test'>
+                <div className='content'>
                   <p>{post.content}</p>
+                  <p>
+                    <span className='regex'>
+                      dicta, @totam eos?, #Lorem ipsum
+                    </span>
+                  </p>
                 </div>
                 <div className='hideImg'>
                   <img src={post.media_url} alt='' />
