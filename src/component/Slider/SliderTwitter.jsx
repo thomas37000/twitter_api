@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,23 +9,25 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import CardInstagram from '../Cards/CardInstagram';
+import CardTwitter from '../Cards/CardTwitter';
+import API_URL from '../../api/api';
 
-const SliderInstagram = () => {
+const SliderTwitter = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [items, setItems] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
 
-  const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    s: 'thomas4',
-    t: 'ddf1f0d7ee779ed42772231fa903a43b',
+    // s: 'thomas2',
+    // t: '414d4d57e4577ea404ff0ebdfe25c680',
+    s: 'thomas3',
+    t: '8845c9cd48230070ac72191467ac1690',
     object: 'post',
-    network: 'instagram',
-    username: 'elonmusk',
-    per_page: 30,
+    network: 'twitter',
+    username: '',
+    per_page: 10,
   };
 
   useEffect(() => {
@@ -34,7 +37,7 @@ const SliderInstagram = () => {
       .then((data) => {
         setItems(data);
         setUsers(data.user);
-        console.log('instagram posts', data);
+        console.log('twitter posts', data);
       })
       .catch((error) => {
         let message;
@@ -46,8 +49,7 @@ const SliderInstagram = () => {
           console.log(error);
         }
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.username]);
+  }, [params.t]);
 
   const next = () => {
     if (animating) return;
@@ -74,7 +76,7 @@ const SliderInstagram = () => {
         key={post.pub_id}
         post={post}
       >
-        <CardInstagram key={post.pub_id} post={post} session={post.session_id} />
+        <CardTwitter key={post.pub_id} post={post} session={post.session_id} />
         <CarouselCaption
           captionText={post.caption}
           captionHeader={post.caption}
@@ -105,4 +107,4 @@ const SliderInstagram = () => {
   );
 };
 
-export default SliderInstagram;
+export default SliderTwitter;

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,25 +9,24 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import CardTwitter from '../Cards/CardTwitter';
+import API_URL from '../../api/api';
+import CardFb from '../Cards/CardFacebook';
 
-const SliderTwitter = () => {
+const SliderFacebook = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [items, setItems] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
 
-  const API_URL = `https://slideyour.net/api.php`;
   const params = {
-    // s: 'thomas4',
-    // t: 'ddf1f0d7ee779ed42772231fa903a43b',
     s: 'thomas2',
     t: '414d4d57e4577ea404ff0ebdfe25c680',
+    // s: 'thomas3',
+    // t: '8845c9cd48230070ac72191467ac1690',
     object: 'post',
-    network: 'twitter',
-    username: '',
-    per_page: 30,
+    network: 'facebook',
+    per_page: 10,
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const SliderTwitter = () => {
       .then((data) => {
         setItems(data);
         setUsers(data.user);
-        console.log('twitter posts', data);
+        console.log('Facebook posts', data);
       })
       .catch((error) => {
         let message;
@@ -48,8 +48,7 @@ const SliderTwitter = () => {
           console.log(error);
         }
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.username]);
+  }, [params.t]);
 
   const next = () => {
     if (animating) return;
@@ -76,7 +75,7 @@ const SliderTwitter = () => {
         key={post.pub_id}
         post={post}
       >
-        <CardTwitter key={post.pub_id} post={post} session={post.session_id} />
+        <CardFb key={post.pub_id} post={post} session={post.session_id} />
         <CarouselCaption
           captionText={post.caption}
           captionHeader={post.caption}
@@ -107,4 +106,4 @@ const SliderTwitter = () => {
   );
 };
 
-export default SliderTwitter;
+export default SliderFacebook;

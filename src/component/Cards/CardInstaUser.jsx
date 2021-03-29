@@ -18,7 +18,7 @@ export default function CardInstagram({ post }) {
           <div className='content'>
             <p>{post.user_description}</p>
           </div>
-          <div className='cardImg'></div>
+          <div className='cardImg' />
         </div>
         <div className='userCard'>
           <img className='logoUser' src={post.avatar_url} alt={post.name} />
