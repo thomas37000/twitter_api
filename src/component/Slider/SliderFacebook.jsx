@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -9,22 +8,25 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-// import API_URL from '../../api/api';
 import CardFb from '../Cards/CardFacebook';
+
+require('dotenv').config();
 
 const SliderFacebook = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [items, setItems] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [users, setUsers] = useState([]);
 
-  const API_URL = 'https://slideyour.net/api.php';
+  const {
+    REACT_APP_API_URL,
+    REACT_APP_API_USER,
+    REACT_APP_API_TOKEN,
+  } = process.env;
+
+  const API_URL = `${REACT_APP_API_URL}`;
   const params = {
-    s: 'thomas2',
-    t: '414d4d57e4577ea404ff0ebdfe25c680',
-    // s: 'thomas3',
-    // t: '8845c9cd48230070ac72191467ac1690',
+    s: `${REACT_APP_API_USER}`,
+    t: `${REACT_APP_API_TOKEN}`,
     object: 'post',
     network: 'facebook',
     per_page: 10,
@@ -36,7 +38,6 @@ const SliderFacebook = () => {
       .then((res) => res.data)
       .then((data) => {
         setItems(data);
-        setUsers(data.user);
         console.log('Facebook posts', data);
       })
       .catch((error) => {
@@ -49,7 +50,7 @@ const SliderFacebook = () => {
           console.log(error);
         }
       });
-  }, [params.t]);
+  }, []);
 
   const next = () => {
     if (animating) return;
