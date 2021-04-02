@@ -51,7 +51,7 @@ const SliderFacebook = () => {
           console.log(error);
         }
       });
-  }, []);
+  }, [params.t]);
 
   const next = () => {
     if (animating) return;
